@@ -2,20 +2,23 @@ package solutions.MergeTwoSortedLists;
 
 import structures.lists.ListNode;
 
+import static structures.lists.ListNode.insertIntoNode;
+import static structures.lists.ListNode.printNodeItems;
+
 public class Main {
     public static void main(String[] args) {
         // 1,2,4
         ListNode list1 = new ListNode(), list2 = new ListNode();
-        Solution.insertIntoNode(list1, 1);
-        Solution.insertIntoNode(list1, 2);
-        Solution.insertIntoNode(list1, 4);
+        insertIntoNode(list1, 1);
+        insertIntoNode(list1, 2);
+        insertIntoNode(list1, 4);
 
         // 1,3,4
-        Solution.insertIntoNode(list2, 1);
-        Solution.insertIntoNode(list2, 3);
-        Solution.insertIntoNode(list2, 4);
+        insertIntoNode(list2, 1);
+        insertIntoNode(list2, 3);
+        insertIntoNode(list2, 4);
 
-        Solution.printNodeItems(Solution.mergeTwoSortedLists(list1, list2));
+        printNodeItems(Solution.mergeTwoSortedLists(list1, list2));
     }
 }
 
@@ -46,30 +49,5 @@ class Solution {
             return mergedList;
         }
         return null;
-    }
-
-    public static void insertIntoNode(ListNode list, int value) {
-        ListNode elm = list;
-
-        if (elm.getVal() == 0 && elm.getNext() == null) {
-            elm.setVal(value);
-            return;
-        }
-
-        while (elm.getNext() != null) {
-            elm = elm.getNext();
-        }
-
-        elm.setNext(new ListNode(value));
-    }
-
-    public static void printNodeItems(ListNode list) {
-        ListNode elm = list;
-
-        while (elm != null) {
-            System.out.print(elm.getVal() + " ");
-            elm = elm.getNext();
-        }
-        System.out.println();
     }
 }
