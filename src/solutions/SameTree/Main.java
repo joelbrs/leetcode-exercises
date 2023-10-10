@@ -16,16 +16,16 @@ public class Main {
 
 class Solution {
     public static boolean isSameTree(TreeNode p, TreeNode q) {
-        if ((Objects.isNull(p) && !Objects.isNull(q)) || (Objects.isNull(q) && !Objects.isNull(p))) {
+        if ((p == null && q != null) || (q == null && p != null)) {
             return false;
         }
 
-        if (Objects.isNull(p) && Objects.isNull(q)) {
+        if (p == null && q == null) {
             return true;
         }
 
         if (p.getVal() == q.getVal()) {
-            if ((Objects.isNull(p.getLeft()) && Objects.isNull(q.getLeft())) && (Objects.isNull(p.getRight()) && Objects.isNull(q.getRight()))) {
+            if ((p.getLeft() == null && q.getLeft() == null) && (p.getRight() == null && q.getRight() == null)) {
                 return true;
             }
         }
