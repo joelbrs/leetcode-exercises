@@ -1,6 +1,4 @@
-package mergeSortedArray;
-
-import java.util.Arrays;
+package solutions.MergeSortedArray;
 
 public class Main {
     public static void main(String[] args) {

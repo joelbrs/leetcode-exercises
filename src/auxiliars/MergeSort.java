@@ -1,29 +1,10 @@
-package sortedSquares;
+package auxiliars;
 
 import java.util.Arrays;
 
-public class Main {
-    public static void main(String[] args) {
-        int[] nums = { 4,21,89,2,5,0,45 };
+public class MergeSort {
 
-        int[] resp = Solution.sortedSquares(nums);
-
-        for (int val : resp) {
-            System.out.print(val + " ");
-        }
-    }
-}
-
-class Solution {
-    public static int[] sortedSquares(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = nums[i]*nums[i];
-        }
-
-        return mergeSort(nums);
-    }
-
-    private static int[] mergeSort(int[] nums) {
+    public static int[] mergeSort(int[] nums) {
         if (nums.length == 1) {
             return nums;
         }

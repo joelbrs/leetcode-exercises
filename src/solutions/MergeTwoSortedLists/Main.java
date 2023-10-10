@@ -1,4 +1,6 @@
-package mergeTwoSortedLists;
+package solutions.MergeTwoSortedLists;
+
+import structures.lists.ListNode;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,37 +19,29 @@ public class Main {
     }
 }
 
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-}
-
 class Solution {
     public static ListNode mergeTwoSortedLists(ListNode list1, ListNode list2) {
         if (list1 != null || list2 != null) {
             ListNode mergedList = new ListNode(), elm1 = list1, elm2 = list2;
 
             while (elm1 != null && elm2 != null) {
-                if (elm1.val > elm2.val) {
-                    insertIntoNode(mergedList, elm2.val);
-                    elm2 = elm2.next;
+                if (elm1.getVal() > elm2.getVal()) {
+                    insertIntoNode(mergedList, elm2.getVal());
+                    elm2 = elm2.getNext();
                 } else {
-                    insertIntoNode(mergedList, elm1.val);
-                    elm1 = elm1.next;
+                    insertIntoNode(mergedList, elm1.getVal());
+                    elm1 = elm1.getNext();
                 }
             }
 
             while (elm1 != null) {
-                insertIntoNode(mergedList, elm1.val);
-                elm1 = elm1.next;
+                insertIntoNode(mergedList, elm1.getVal());
+                elm1 = elm1.getNext();
             }
 
             while (elm2 != null) {
-                insertIntoNode(mergedList, elm2.val);
-                elm2 = elm2.next;
+                insertIntoNode(mergedList, elm2.getVal());
+                elm2 = elm2.getNext();
             }
             return mergedList;
         }
@@ -57,24 +51,24 @@ class Solution {
     public static void insertIntoNode(ListNode list, int value) {
         ListNode elm = list;
 
-        if (elm.val == 0 && elm.next == null) {
-            elm.val = value;
+        if (elm.getVal() == 0 && elm.getNext() == null) {
+            elm.setVal(value);
             return;
         }
 
-        while (elm.next != null) {
-            elm = elm.next;
+        while (elm.getNext() != null) {
+            elm = elm.getNext();
         }
 
-        elm.next = new ListNode(value);
+        elm.setNext(new ListNode(value));
     }
 
     public static void printNodeItems(ListNode list) {
         ListNode elm = list;
 
         while (elm != null) {
-            System.out.print(elm.val + " ");
-            elm = elm.next;
+            System.out.print(elm.getVal() + " ");
+            elm = elm.getNext();
         }
         System.out.println();
     }
