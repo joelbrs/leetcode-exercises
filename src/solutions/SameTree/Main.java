@@ -24,12 +24,12 @@ class Solution {
             return true;
         }
 
-        if (p.getVal() == q.getVal()) {
-            if ((p.getLeft() == null && q.getLeft() == null) && (p.getRight() == null && q.getRight() == null)) {
+        if (p.val == q.val) {
+            if ((p.left == null && q.left == null) && (p.right == null && q.right == null)) {
                 return true;
             }
         }
 
-        return p.getVal() == q.getVal() && isSameTree(p.getLeft(), q.getLeft()) && isSameTree(p.getRight(), q.getRight());
+        return p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
 }

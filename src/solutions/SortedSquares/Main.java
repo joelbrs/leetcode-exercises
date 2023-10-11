@@ -1,6 +1,6 @@
 package solutions.SortedSquares;
 
-import auxiliars.MergeSort;
+import static auxiliars.MergeSort.mergeSort;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,6 +20,6 @@ class Solution {
             nums[i] = nums[i]*nums[i];
         }
 
-        return MergeSort.mergeSort(nums);
+        return mergeSort(nums);
     }
 }

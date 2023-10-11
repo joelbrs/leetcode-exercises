@@ -1,50 +1,38 @@
 package structures.lists;
 
 public class ListNode {
-    private int val;
-    private ListNode next;
+    public int val = -1;
+    public ListNode next;
 
     public ListNode() {}
     public ListNode(int val) { this.val = val; }
     public ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 
-    public int getVal() {
-        return val;
-    }
+    public static void insertIntoNode(ListNode list, int... values) {
+        ListNode currenNode = list; int currentIndex = 0;
 
-    public void setVal(int val) {
-        this.val = val;
-    }
-
-    public ListNode getNext() {
-        return next;
-    }
-
-    public void setNext(ListNode next) {
-        this.next = next;
-    }
-
-    public static void insertIntoNode(ListNode list, int value) {
-        ListNode elm = list;
-
-        if (elm.getVal() == 0 && elm.getNext() == null) {
-            elm.setVal(value);
-            return;
+        if (list.val < 0 && list.next == null) {
+            currenNode.val = values[currentIndex];
+            currentIndex++;
         }
 
-        while (elm.getNext() != null) {
-            elm = elm.getNext();
+        while (currenNode.next != null) {
+            currenNode = currenNode.next;
         }
 
-        elm.setNext(new ListNode(value));
+        while (currentIndex < values.length) {
+            currenNode.next = new ListNode(values[currentIndex]);
+            currentIndex++;
+            currenNode = currenNode.next;
+        }
     }
 
     public static void printNodeItems(ListNode list) {
-        ListNode elm = list;
+        ListNode currentNode = list;
 
-        while (elm != null) {
-            System.out.print(elm.getVal() + " ");
-            elm = elm.getNext();
+        while (currentNode != null) {
+            System.out.print(currentNode.val + " ");
+            currentNode = currentNode.next;
         }
         System.out.println();
     }

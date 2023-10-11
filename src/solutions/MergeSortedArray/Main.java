@@ -1,5 +1,8 @@
 package solutions.MergeSortedArray;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         int[] nums1 = {1,2,3,0,0,0}, nums2 = {2,5,6}; int m = 3, n = 3;
