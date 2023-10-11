@@ -2,8 +2,6 @@ package solutions.SameTree;
 
 import structures.trees.TreeNode;
 
-import java.util.Objects;
-
 public class Main {
     public static void main(String[] args) {
         //p = [1,2,1], q = [1,1,2]
